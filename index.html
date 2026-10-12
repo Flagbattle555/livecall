@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ============================================================
+     ✏️ EDIT 1 — PAGE TITLE + SHARE PREVIEW (WhatsApp, Facebook, Telegram...)
+     When someone shares your link, they see: your profile pic + the title below.
+     IMPORTANT: og:image must be a FULL public link (https://...), not a local file.
+     Upload your photo to your hosting, then paste its full URL below.
+     Best size: 1200 x 630 px (or a square image at least 600 x 600 px).
+     ============================================================ -->
+<title>🔥 Video Call Me Now 😘</title>
+<meta name="description" content="🔥 Video Call Me Now 😘">
+
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="🔥 Video Call Me Now 😘">
+<meta property="og:description" content="Tap to see more on video">
+<meta property="og:image"       content="https://i.postimg.cc/7YbkY4gW/60825c81-7796-4f2b-8864-52f999272d36.jpg">   <!-- ✏️ your profile picture URL -->
+<meta property="og:url"         content="https://YOUR-WEBSITE.com/">              <!-- ✏️ your page URL -->
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="🔥 Video Call Me Now 😘">
+<meta name="twitter:description" content="Tap to see more on video">
+<meta name="twitter:image"       content="https://i.postimg.cc/7YbkY4gW/60825c81-7796-4f2b-8864-52f999272d36.jpg">  <!-- ✏️ same picture URL -->
+
+<meta name="theme-color" content="#14020b">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,600;1,800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     COLOR SYSTEM — change colors here and everything updates
+     ============================================================ */
+  :root {
+    --bg:        #14020b;   /* deep black-wine   */
+    --wine:      #3a0620;   /* dark wine         */
+    --rose:      #ff2e7e;   /* hot rose          */
+    --magenta:   #c4126b;   /* deep magenta      */
+    --gold:      #ffc46b;   /* warm gold         */
+    --blush:     #ffd9e6;   /* soft blush text   */
+    --glass:     rgba(255, 255, 255, .06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: var(--blush);
+    background: var(--bg);
+    overflow-x: hidden;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* ---------- Scroll progress bar ---------- */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: linear-gradient(90deg, var(--rose), var(--gold));
+    z-index: 50;
+  }
+
+  /* ============================================================
+     BACKGROUND — smooth wine-to-rose gradient (no texture)
+     ============================================================ */
+  .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+
+  /* base: dark at the top, glowing wine/rose at the bottom */
+  .bg::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 70% at 50% 110%, var(--magenta) 0%, transparent 60%),
+      linear-gradient(to top, var(--wine) 0%, var(--bg) 85%);
+  }
+
+  /* rising sparks (drawn by the script at the bottom) */
+  #sparks { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  /* ✏️ GAP BETWEEN SECTIONS: lower min-height / padding = smaller gap */
+  section {
+    position: relative;
+    min-height: 56vh; min-height: 56svh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 36px 24px;
+  }
+  section.hero { min-height: 100vh; min-height: 100svh; padding: 64px 24px 80px; }
+
+  /* ---------- Profile picture ---------- */
+  .avatar {
+    position: relative; width: 190px; height: 190px; border-radius: 50%;
+    padding: 5px;
+    background: conic-gradient(from 0deg, var(--rose), var(--gold), var(--magenta), var(--rose));
+    animation: spin 8s linear infinite;
+    box-shadow: 0 0 60px rgba(255, 46, 126, .55);
+  }
+  .avatar::after {                     /* soft pulsing halo */
+    content: ""; position: absolute; inset: -14px; border-radius: 50%;
+    border: 1px solid rgba(255, 46, 126, .5);
+    animation: pulse 2.6s ease-out infinite;
+  }
+  .avatar img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    border: 5px solid var(--bg); display: block; background: var(--wine);
+    animation: spin 8s linear infinite reverse;   /* cancels the ring rotation */
+  }
+  @keyframes spin  { to { transform: rotate(360deg); } }
+  @keyframes pulse { 0% { transform: scale(.95); opacity: .9; } 100% { transform: scale(1.35); opacity: 0; } }
+
+  /* ---------- Name ---------- */
+  .name {
+    margin-top: 34px;
+    font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 800;
+    font-size: clamp(3rem, 13vw, 6rem); line-height: 1;
+    background: linear-gradient(100deg, #fff 0%, var(--blush) 30%, var(--rose) 70%, var(--gold) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 6px 30px rgba(255, 46, 126, .45));
+  }
+  .tagline { margin-top: 14px; font-size: 1.05rem; letter-spacing: .04em; opacity: .85; }
+
+  /* ---------- CALL ME BUTTON ---------- */
+  .call-btn {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 40px; padding: 20px 46px; border-radius: 999px;
+    font: 800 1.15rem 'Manrope', sans-serif; letter-spacing: .06em; text-decoration: none; color: #fff;
+    background: linear-gradient(120deg, var(--magenta), var(--rose) 55%, #ff7a59);
+    box-shadow: 0 10px 40px rgba(255, 46, 126, .55), inset 0 1px 0 rgba(255, 255, 255, .35);
+    transition: transform .35s cubic-bezier(.2, .9, .3, 1.4), box-shadow .35s;
+    animation: beat 2.4s ease-in-out infinite;
+  }
+  .call-btn .icon { display: inline-block; transform-origin: 70% 70%; animation: ring 2.4s ease-in-out infinite; }
+
+  /* shine sweep on hover */
+  .call-btn::before {
+    content: ""; position: absolute; top: 0; left: -120%; width: 80%; height: 100%; z-index: -1;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+    transform: skewX(-20deg); transition: left .7s ease;
+  }
+  /* gold fill behind text on hover */
+  .call-btn::after {
+    content: ""; position: absolute; inset: 0; z-index: -2; opacity: 0;
+    background: linear-gradient(120deg, #ff7a59, var(--gold));
+    transition: opacity .4s;
+  }
+  .call-btn:hover, .call-btn:focus-visible {
+    transform: translateY(-6px) scale(1.07);
+    box-shadow: 0 18px 60px rgba(255, 46, 126, .8), 0 0 0 6px rgba(255, 46, 126, .2);
+    animation-play-state: paused; outline: none;
+  }
+  .call-btn:hover::before, .call-btn:focus-visible::before { left: 140%; }
+  .call-btn:hover::after,  .call-btn:focus-visible::after  { opacity: 1; }
+  .call-btn:active { transform: translateY(-1px) scale(.98); }
+
+  @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.04); } }
+  @keyframes ring { 0%, 60%, 100% { transform: rotate(0); } 10%, 30% { transform: rotate(-16deg); } 20%, 40% { transform: rotate(16deg); } }
+
+  .hint { margin-top: 18px; font-size: .85rem; opacity: .6; }
+  .scroll-cue { position: absolute; bottom: 28px; font-size: .8rem; letter-spacing: .2em; opacity: .55; animation: bob 2s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(8px); } }
+
+  /* ---------- Section 2 : glass card ---------- */
+  .card {
+    max-width: 560px; padding: 44px 34px; border-radius: 28px;
+    background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, .12);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
+  }
+  .card h2 {
+    font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 600;
+    font-size: clamp(1.9rem, 6vw, 2.8rem); line-height: 1.15; color: #fff;
+  }
+  .card p { margin-top: 18px; line-height: 1.7; font-size: 1.05rem; opacity: .85; }
+
+  /* ---------- Section 3 : final call ---------- */
+  .final h2 {
+    font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 800;
+    font-size: clamp(2.4rem, 9vw, 4.4rem); line-height: 1.05; color: #fff;
+  }
+  .final p { margin-top: 12px; opacity: .8; }
+
+  /* ---------- Floating button (shows after you scroll) ---------- */
+  .float-btn {
+    position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+    padding: 14px 22px; border-radius: 999px; text-decoration: none; color: #fff; font-weight: 800;
+    background: linear-gradient(120deg, var(--magenta), var(--rose));
+    box-shadow: 0 8px 30px rgba(255, 46, 126, .6);
+    transform: translateY(120px); opacity: 0; transition: transform .5s cubic-bezier(.2, .9, .3, 1.3), opacity .4s;
+  }
+  .float-btn.show { transform: none; opacity: 1; }
+  .float-btn:hover { filter: brightness(1.15); }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(50px) scale(.97); filter: blur(6px);
+            transition: opacity .9s ease, transform .9s cubic-bezier(.2, .8, .2, 1), filter .9s ease; }
+  .reveal.in { opacity: 1; transform: none; filter: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; filter: none; }
+  }
+</style>
+</head>
+
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- Background: smooth gradient + rising sparks (no texture) -->
+<div class="bg"></div>
+<canvas id="sparks"></canvas>
+
+<!-- ======================= SECTION 1 : HERO ======================= -->
+<section class="hero">
+  <!-- ============================================================
+       ✏️ EDIT 2 — PROFILE PICTURE
+       Replace the link in src="" with your own photo (file name or full URL).
+       ============================================================ -->
+  <div class="avatar reveal">
+    <img src="https://i.postimg.cc/7YbkY4gW/60825c81-7796-4f2b-8864-52f999272d36.jpg" alt="Kristina Marie">   <!-- ✏️ PROFILE PICTURE HERE -->
+  </div>
+
+  <!-- ✏️ EDIT 3 — YOUR NAME -->
+  <h1 class="name reveal">Kristina Marie</h1>
+  <p class="tagline reveal">Online now 🔥 Come see more on video</p>
+
+  <!-- ============================================================
+       ✏️ EDIT 4 — VIDEO CALL BUTTON LINK
+       Put the website you want people to go to inside href="".
+       ============================================================ -->
+  <a class="call-btn reveal" href="https://example.com" target="_blank" rel="noopener">   <!-- ✏️ REDIRECT WEBSITE HERE -->
+    <span class="icon">📹</span> VIDEO CALL ME NOW
+  </a>
+  <p class="hint reveal">Tap the button to start the video call</p>
+
+  <div class="scroll-cue">SCROLL ↓</div>
+</section>
+
+<!-- ======================= SECTION 2 : CARD ======================= -->
+<section>
+  <div class="card reveal">
+    <h2>Want to see more?</h2>
+    <p>I'm online right now. Start a video call and see more for yourself 😉❤️</p>
+  </div>
+</section>
+
+<!-- ======================= SECTION 3 : FINAL CALL ======================= -->
+<section class="final">
+  <h2 class="reveal">Come see more on video</h2>
+  <p class="reveal">Your video call is one tap away 💋</p>
+  <!-- ✏️ EDIT 4 (again) — same redirect website -->
+  <a class="call-btn reveal" href="https://example.com" target="_blank" rel="noopener">   <!-- ✏️ REDIRECT WEBSITE HERE -->
+    <span class="icon">📹</span> VIDEO CALL ME NOW
+  </a>
+</section>
+
+<!-- Floating button (appears after scrolling) -->
+<!-- ✏️ EDIT 4 (third) — same redirect website -->
+<a class="float-btn" id="floatBtn" href="https://example.com" target="_blank" rel="noopener">📹 Video call</a>
+
+<script>
+  /* ---------- 1. Scroll reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 120);   // small stagger
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: .2 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ---------- 2. Scroll progress + floating button + parallax ---------- */
+  const bar = document.getElementById('progress');
+  const floatBtn = document.getElementById('floatBtn');
+
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (y / max * 100) + '%';
+    floatBtn.classList.toggle('show', y > innerHeight * .6);
+  }, { passive: true });
+
+  /* ---------- 3. Rising sparks (bottom to top) ---------- */
+  const canvas = document.getElementById('sparks');
+  const ctx = canvas.getContext('2d');
+  let W, H, sparks = [];
+  const COLORS = ['255,46,126', '255,196,107', '255,120,160'];
+
+  function resize() {
+    W = canvas.width = innerWidth;
+    H = canvas.height = innerHeight;
+  }
+  addEventListener('resize', resize); resize();
+
+  function makeSpark(fromBottom) {
+    return {
+      x: Math.random() * W,
+      y: fromBottom ? H + 10 : Math.random() * H,
+      r: Math.random() * 2.6 + .6,
+      speed: Math.random() * .7 + .25,
+      drift: Math.random() * Math.PI * 2,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)]
+    };
+  }
+  const COUNT = innerWidth < 600 ? 45 : 90;
+  for (let i = 0; i < COUNT; i++) sparks.push(makeSpark(false));
+
+  (function draw() {
+    ctx.clearRect(0, 0, W, H);
+    sparks.forEach((s, i) => {
+      s.y -= s.speed;                                   // move UP
+      s.drift += .01;
+      s.x += Math.sin(s.drift) * .4;                    // gentle sway
+      const fade = Math.min(1, s.y / (H * .5));         // fade out near the top
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(${s.color},${.15 + fade * .65})`;
+      ctx.shadowColor = `rgba(${s.color},.9)`;
+      ctx.shadowBlur = 12;
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+      if (s.y < -10) sparks[i] = makeSpark(true);
+    });
+    requestAnimationFrame(draw);
+  })();
+</script>
+</body>
+</html>
